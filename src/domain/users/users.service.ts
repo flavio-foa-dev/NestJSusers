@@ -12,4 +12,9 @@ export class UsersService {
   public async getUsersAll() {
     return this.users;
   }
+
+  public async getUserByName(name: string) {
+    const user = await this.users.find((user) => user.name === name);
+    return user;
+  }
 }
