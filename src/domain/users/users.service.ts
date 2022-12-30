@@ -21,6 +21,7 @@ export class UsersService {
   }
 
   public async getUserByName(name: string): Promise<UserEntity> {
+    throw new Error('user not found');
     return this.users.find((user) => user.userName === name);
   }
 }

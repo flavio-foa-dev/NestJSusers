@@ -13,6 +13,13 @@ O próprio NestJ disponibiliza um recurso chamado de Container IoC, ou “contai
 <p>
 Usei class-validator e class-transforme, assim garantindo que os dados estejam no formato esperado pela API. dando a importancia de devolver mesangens coerentes com os erros, fazendo uso ValidationPipe, pude construir decorator customizados.
 </p>
+<p>
+Usei a biblioteca class-transforme para serializacao dos dados,  tendo em vista a importanciada dos dandos de entrada e saida, criando interceptadores.
+</p>
+<p>
+Apliquei filtros de excecao nos tratamentos ds erros da aplicacao
+Seguir o modelo de APIs REST Proposto por Leonard Richardson.
+
 
 ## Installation
 
