@@ -3,13 +3,7 @@ import { UserEntity } from './dto/user.entity';
 
 @Injectable()
 export class UsersService {
-  private users = [
-    {
-      userName: 'flavio',
-      email: 'flavio@user.com',
-      password: '010101',
-    },
-  ];
+  private users = [];
 
   public async create(user: any) {
     this.users.push(user);
@@ -21,7 +15,6 @@ export class UsersService {
   }
 
   public async getUserByName(name: string): Promise<UserEntity> {
-    throw new Error('user not found');
     return this.users.find((user) => user.userName === name);
   }
 }

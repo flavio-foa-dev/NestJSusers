@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { UserEntity } from './dto/user.entity';
 import { UsersService } from './users.service';
 
@@ -13,12 +20,19 @@ export class UsersController {
 
   @Get()
   public async getUsersAll(): Promise<UserEntity[]> {
-    return this.userService.getUsersAll();
+    const users = await this.userService.getUsersAll();
+    if (!users.length) {
+      throw new NotFoundException();
+    }
+    return users;
   }
 
   @Get('/:name')
   public async getUserByName(@Param('name') name: string): Promise<UserEntity> {
     const user = await this.userService.getUserByName(name);
+    if (!user) {
+      throw new NotFoundException();
+    }
     return user;
   }
 }
